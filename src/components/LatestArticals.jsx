@@ -3,13 +3,13 @@ import DishCard from "./DishCard";
 import styled from "styled-components";
 import { ChevronLeftIcon } from "@heroicons/react/24/solid";
 import { ChevronRightIcon } from "@heroicons/react/24/solid";
-import {receipelists} from "../constants/index";
+import { receipelists } from "../constants/index";
 
 const LatestArticals = () => {
   const scrollRef = useRef(null);
-  const [activeScroll, setActiveScroll] = useState(false)
+  const [activeScroll, setActiveScroll] = useState(false);
   const Prev = () => {
-    if(!activeScroll){
+    if (!activeScroll) {
       return;
     }
     scrollRef.current.scrollLeft -= 1500;
@@ -17,7 +17,7 @@ const LatestArticals = () => {
   };
 
   const Next = () => {
-    if(activeScroll){
+    if (activeScroll) {
       return;
     }
     scrollRef.current.scrollLeft += 1500;
@@ -30,23 +30,25 @@ const LatestArticals = () => {
         <h1>Latest Articles</h1>
 
         <SliderBody ref={scrollRef} className="slider">
-        {
-          receipelists.map((item) => {
-            return (
-              <DishCard key={item.id} receipe={item}/>
-            )
-          })
-        }
+          {receipelists.map((item) => {
+            return <DishCard key={item.id} receipe={item} />;
+          })}
         </SliderBody>
 
         <ScrollBtns>
           <LeftScrollBtn onClick={Prev} activeScroll={activeScroll}>
-            <ChevronLeftIcon className="" style={{width : "20px", height : "20px"}}/>
+            <ChevronLeftIcon
+              className=""
+              style={{ width: "20px", height: "20px" }}
+            />
           </LeftScrollBtn>
-        
-          <ScrollValue>{activeScroll ? '2' : '1'} / 2</ScrollValue>
+
+          <ScrollValue>{activeScroll ? "2" : "1"} / 2</ScrollValue>
           <RightScrollBtn onClick={Next} activeScroll={activeScroll}>
-            <ChevronRightIcon className="" style={{width : "20px", height : "20px"}}/>
+            <ChevronRightIcon
+              className=""
+              style={{ width: "20px", height: "20px" }}
+            />
           </RightScrollBtn>
         </ScrollBtns>
       </Conatianer>
@@ -67,6 +69,17 @@ const Conatianer = styled.div`
   ::-webkit-scrollbar {
     display: none;
   }
+
+  padding-bottom: 50px;
+  @media (max-width: 768px) {
+    padding: 0 40px;
+    padding-top: 80px;
+    padding-bottom: 50px;
+    h1 {
+      text-align: center;
+      font-size: 35px;
+    }
+  }
 `;
 
 const SliderBody = styled.div`
@@ -78,37 +91,55 @@ const SliderBody = styled.div`
   overflow-x: hidden;
   transition: all 0.5s ease;
   scroll-behavior: smooth;
+  flex-direction: row;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    max-height: 1550px;
+    overflow-y: hidden;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
 `;
 
 const ScrollBtns = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap : 5px;
+  gap: 5px;
 `;
 
 const LeftScrollBtn = styled.div`
-color : ${props => (props.activeScroll ? ` var(--font-gray-color-4)` : `#AFAFAF`)};
-border : 2px solid;
-border-radius : 5px;
-padding: 2px;
-display: flex;
-justify-content: center;
-align-items: center;
-cursor: pointer;
-border-color : ${props => (props.activeScroll ? `var(--font-gray-color-4)` : `#AFAFAF`)};
+  color: ${(props) =>
+    props.activeScroll ? ` var(--font-gray-color-4)` : `#AFAFAF`};
+  border: 2px solid;
+  border-radius: 5px;
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-color: ${(props) =>
+    props.activeScroll ? `var(--font-gray-color-4)` : `#AFAFAF`};
+  @media (max-width: 768px) {
+    padding: 0px;
+  }
 `;
 
 const RightScrollBtn = styled.div`
-color : ${props => (props.activeScroll ? `#AFAFAF` : `var(--font-gray-color-4)`)};
-border : 2px solid;
-border-radius : 5px;
-padding: 2px;
-display: flex;
-justify-content: center;
-align-items: center;
-cursor: pointer;
-border-color : ${props => (props.activeScroll ? `#AFAFAF` : `var(--font-gray-color-4)`)};
+  color: ${(props) =>
+    props.activeScroll ? `#AFAFAF` : `var(--font-gray-color-4)`};
+  border: 2px solid;
+  border-radius: 5px;
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-color: ${(props) =>
+    props.activeScroll ? `#AFAFAF` : `var(--font-gray-color-4)`};
+  @media (max-width: 768px) {
+    padding: 0px;
+  }
 `;
 
 const ScrollValue = styled.span`

@@ -15,8 +15,7 @@ const Footer = () => {
               <h4>Contact Us</h4>
               <ul>
                 <li>
-                  Lorem Ipsum Pvt Ltd.5/1, Magalton <br />
-                  Road, Phartosh Gate near YTM <br />
+                  Lorem Ipsum Pvt Ltd.5/1, Magalton Road, Phartosh Gate near YTM
                   Market, XYZ-343434
                 </li>
                 <li>example2020@gmail.com</li>
@@ -63,6 +62,9 @@ const Footer = () => {
 
 const Container = styled.footer`
   background-color: var(--bg-gray-color);
+  @media (max-width: 768px) {
+    padding: 0 50px;
+  }
 `;
 
 const FooterBody = styled.div`
@@ -74,8 +76,12 @@ const FooterBody = styled.div`
   align-items: center;
   padding-top: 84px;
   padding-bottom: 92px;
-  /* background-color: green; */
   gap: 200px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 50px 0px;
+    gap: 100px;
+  }
 `;
 const FooterLogo = styled.img`
   width: 161px;
@@ -89,14 +95,13 @@ const FooterLinks = styled.div`
   align-items: flex-start;
   width: 100%;
   gap: 200px;
-  /* background-color: red; */
-  /* max-width: 1000px; */
-  /* margin: 0 auto; */
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 50px;
+  }
 `;
 
 const ContactLinks = styled.div`
-  /* width: 100%;
-  max-width: 450px; */
   h4 {
     color: var(--primary-color);
     font-family: var(--font-family-source-sans);
@@ -113,7 +118,8 @@ const ContactLinks = styled.div`
     font-weight: 400;
     line-height: 23px;
     padding-bottom: 15px;
-
+    width: 100%;
+    max-width: 217px;
     &:last-child {
       padding-bottom: 0;
     }
@@ -121,14 +127,19 @@ const ContactLinks = styled.div`
       padding-top: 12px;
     }
   }
+  @media (max-width: 768px) {
+    li {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
 `;
 
 const SocialMediaLinks = styled.div`
-  /* width: 100%; */
-  /* max-width: 350px; */
   display: flex;
   flex-direction: column;
-  gap : 80px;
+  gap: 80px;
+
   h4 {
     color: var(--primary-color);
     font-family: var(--font-family-source-sans);
@@ -149,6 +160,19 @@ const SocialMediaLinks = styled.div`
       padding-left: 0;
     }
   }
+  @media (max-width: 768px) {
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    gap: 0;
+    flex-direction: column-reverse;
+    h4 {
+      display: none;
+    }
+    ul {
+      padding-left: 20px;
+    }
+  }
 `;
 
 const CopyrightText = styled.p`
@@ -159,5 +183,10 @@ const CopyrightText = styled.p`
   font-weight: 400;
   line-height: 25px;
   margin-left: -80px;
+
+  @media (max-width: 768px) {
+    text-align: center;
+    margin-left: 0;
+  }
 `;
 export default Footer;

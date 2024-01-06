@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const DishCard = ({receipe}) => {
+const DishCard = ({ receipe }) => {
   return (
     <>
       <CardBody>
@@ -10,12 +10,11 @@ const DishCard = ({receipe}) => {
         <CardDescription>
           <h3>{receipe?.title}</h3>
           <p>
-          PLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard...
+            PLorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard...
           </p>
 
-          <CardBtn>
-            Read More
-          </CardBtn>
+          <CardBtn>Read More</CardBtn>
         </CardDescription>
       </CardBody>
     </>
@@ -23,25 +22,34 @@ const DishCard = ({receipe}) => {
 };
 
 const CardBody = styled.div`
-  width: 381px;
-  height: 555px;
+  width: 100%;
+  max-width: 381px;
   background-color: #fff;
   border-radius: 20px;
   border: 1.37px solid rgba(147, 162, 211, 0.38);
-  padding : 28px;
+  padding: 28px;
+  height: 100%;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
-const CardImg = styled.img``;
+const CardImg = styled.img`
+  position: relative;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+`;
 
 const CardDescription = styled.div`
-padding-top: 25px;
+  padding-top: 25px;
+
   h3 {
     color: var(--primary-color);
     font-family: var(--font-family-poppins);
     font-size: 21px;
     font-weight: 700;
-    line-height: 27px; 
-    /* text-align: center; */
+    line-height: 27px;
   }
   p {
     padding-top: 14px;
@@ -51,25 +59,37 @@ padding-top: 25px;
     font-style: normal;
     font-weight: 400;
     line-height: 27px;
-    /* padding-left: 20px;
-    padding-right: 20px; */
     letter-spacing: -0.3px;
+  }
+  @media (max-width: 768px) {
+    h3 {
+      font-size: 16px;
+    }
+    p {
+      font-size: 12px;
+      line-height: 22px;
+    }
   }
 `;
 
 const CardBtn = styled.button`
-border : 1px solid var(--font-gray-color-4);
-outline : none;
-background-color: #fff;
-color : var(--font-gray-color-4);
-font-weight: 600;
-font-size: 16px;
-line-height: 36px;
-font-family: var(--font-family-source-sans);
-padding : 3px 23px;
-border-radius: 21px;
-margin-top: 27px;
-cursor: pointer;  
+  border: 1px solid var(--font-gray-color-4);
+  outline: none;
+  background-color: #fff;
+  color: var(--font-gray-color-4);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 36px;
+  font-family: var(--font-family-source-sans);
+  padding: 3px 23px;
+  border-radius: 21px;
+  margin-top: 27px;
+  cursor: pointer;
+  @media (max-width: 768px) {
+    margin: 0 auto;
+    display: block;
+    margin-top: 15px;
+  }
 `;
 
 export default DishCard;

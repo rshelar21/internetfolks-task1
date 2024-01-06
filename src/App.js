@@ -14,7 +14,6 @@ const GlobalStyle = createGlobalStyle`
     --font-family-source-sans: 'Source Sans 3', sans-serif;
     --font-family-open-sans: 'Open Sans', sans-serif;
     --font-gray-color-4: #424961;
-
   }
   
   `
