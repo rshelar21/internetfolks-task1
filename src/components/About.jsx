@@ -42,10 +42,12 @@ const AboutBody = styled.div`
   align-items: center;
   margin: 0 auto;
   width: 100%;
-  max-width: 1080px;
-  padding: 0 20px;
+  max-width: 1100px;
+  padding: 0px;
+  background: linear-gradient(90deg, rgba(30, 42, 93, 0.04) 30.91%, rgba(48, 62, 130, 0.04) 64.79%, rgba(60, 80, 157, 0.04) 91.94%);
   @media (max-width: 768px) {
     width: 100%;
+    padding: 0 20px;
   }
 `;
 
@@ -59,12 +61,6 @@ const CookingImg = styled.img``;
 const AboutDescription = styled.div`
   width: 100%;
   max-width: 450px;
-  background: linear-gradient(
-    90deg,
-    rgba(30, 42, 93, 0.04) 30.91%,
-    rgba(48, 62, 130, 0.04) 64.79%,
-    rgba(60, 80, 157, 0.04) 91.94%
-  );
   h2 {
     font-size: 45px;
     font-weight: 600;

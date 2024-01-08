@@ -31,6 +31,7 @@ const Hero = () => {
 };
 
 const Container = styled.div`
+background-color: #fff;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
